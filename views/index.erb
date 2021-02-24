@@ -2,19 +2,40 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>おみくじ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <title>おせわゲーム</title>
     </head>
     <body>
-        <h1>おみくじ</h1>
-        <% if params['act'] != nil %>
-            <% fortune = ['大吉', '吉', '中吉', '小吉', '末吉', '凶'] %>
-            <% result = fortune[rand(0..5)] %>
-        <% else %>
-        <% result = 'ありません' %>
-        <% end %>
-        <p>おみくじの結果：<%= result %></p>
-        <form action="/" method="POST">
-            <button type="submit" name="act" value="draw">おみくじをひく！</button>
-        </form>
+        <div class="container">
+            <div class="row bg-light text-dark">
+                <div class="text-center offset-sm-2 col-sm-8 my-4">
+                    <h3>Let's make fun of your dog !</h3>
+                    <p>〜Try it in your spare time〜</p>
+                    <% if params['act'] != nil %>
+                    <% fortune = ['おやつを投げる', 'おやつを２個あげる', 'おやつを４個あげる', 'おしっこorうんこするまで帰れまてん', '一緒に寝る', '愛を伝える', 'お風呂に入れる', '歯ブラシをする', '5分おもちゃで遊ぶ', '今日の晩御飯を豪華にしてあげる', 'ブラッシングをしてあげる', '水を変えてあげる', 'ベットを洗濯してあげる', 'ムツゴロウさんのように撫でる'] %>
+                    <% result = fortune[rand(0..13)] %>
+                    <% else %>
+                    <% result = '何をするかな〜' %>
+                    <% end %>
+                    <p>今日は『<%= result %>』</p>
+                    
+                    <form action="/" method="POST">
+                        <button type="submit" name="act" value="draw" class="btn btn-outline-info"><i class="fas fa-paw"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+            
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        
+
+        
     </body>
 </html>
